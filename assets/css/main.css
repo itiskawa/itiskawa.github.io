@@ -3326,10 +3326,11 @@ input, select, textarea {
 
 /* Initially hide the content */
 .dropdown-content {
-    display: none;
-    padding: 20px;
-    border: 1px solid #ddd;
-    max-width: 300px; /* Adjust based on your image sizes */
+    display: block;
+    height: 0; /* Initially set height to 0 */
+    overflow: hidden; /* Prevent content from showing when height is 0 */
+    transition: height 0.5s ease-out; /* Smooth transition for height property */
+    padding: 0 20px; /* Adjust padding as needed */
 }
 
 /* A class to show the content */
