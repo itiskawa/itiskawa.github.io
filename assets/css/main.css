@@ -3340,10 +3340,15 @@ input, select, textarea {
 
 .image-container img {
     display: inline-block;
-    /* Optional: you can add margins, borders, etc. */
-    margin-right: 10px; /* Add space between images */
+    /* Ensure no width exceeds the container's width */
+    max-width: 48%; /* Example percentage */
+    margin-right: 2%; /* Adjust spacing between images */
+    vertical-align: top; /* Align images to the top of the container */
 }
 
+.image-container {
+    font-size: 0; /* Fix for removing whitespace/gaps between inline-block elements */
+}
 
 
 
