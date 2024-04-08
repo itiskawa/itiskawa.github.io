@@ -3315,4 +3315,31 @@ input, select, textarea {
 
 	}
 
-/* My own dropbutton */
+/* Style the clickable text */
+.dropbtn {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    text-align: left;
+}
+
+/* Initially hide the content */
+.dropdown-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    max-width: 300px; /* Adjust based on your image sizes */
+}
+
+/* A class to show the content */
+.show {display: block;}
+
+
+
+
+
+
+
+
+
