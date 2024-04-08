@@ -3338,7 +3338,11 @@ input, select, textarea {
 
 
 
-
+.image-container img {
+    display: inline-block;
+    /* Optional: you can add margins, borders, etc. */
+    margin-right: 10px; /* Add space between images */
+}
 
 
 
