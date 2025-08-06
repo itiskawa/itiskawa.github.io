@@ -12,7 +12,7 @@ website:
   description: "Victor Kawasaki-Borruat's Personal Website"
  
   navbar:
-    background: light  # You can change the background color here
+    background: dark  # You can change the background color here
 
     left:   # You can comment out all navigation items here if you just like to keep the index page only
 #      - text: Home
