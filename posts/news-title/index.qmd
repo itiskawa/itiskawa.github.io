@@ -2,9 +2,9 @@
 title: "First Workshop Paper Accepted"
 description: "About new item"
 author: "Victor KB"
-date: "2025-09-34"
+date: "2025-09-23"
 categories: [news]
-image: ""
+#image: ""
 #css: /custom.css
 #draft: true
 ---

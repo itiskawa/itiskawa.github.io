@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "What’s New & Updated",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nFirst Workshop Paper Accepted\n\n\n\n\n\n\nnews\n\n\n\nAbout new item\n\n\n\n\n\nNov 3, 2025\n\n\nVictor KB\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\n\n\n\nnews\n\n\n\nExamples and tips for Quarto Academic Website\n\n\n\n\n\nOct 15, 2024\n\n\nDr. Gang He\n\n\n\n\n\n\n\n\n\n\n\n\nEvent item\n\n\n\n\n\n\nevent\n\npresentation\n\n\n\nAbout Event item.\n\n\n\n\n\nSep 3, 2024\n\n\nEvent\n\n\n\n\n\n\n\n\n\n\n\n\nCan quantum-mechanical description of physical reality be considered complete?\n\n\nPhysical Review\n\n\n\npaper\n\n\n\nOne is thus led to conclude that the description of reality as given by a wave function is not complete.\n\n\n\n\n\nMay 15, 1935\n\n\nAlbert Einstein, Boris Podolsky, Nathan Rosen\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nFirst Workshop Paper Accepted\n\n\n\n\n\n\nnews\n\n\n\nAbout new item\n\n\n\n\n\nSep 23, 2025\n\n\nVictor KB\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\n\n\n\nnews\n\n\n\nExamples and tips for Quarto Academic Website\n\n\n\n\n\nOct 15, 2024\n\n\nDr. Gang He\n\n\n\n\n\n\n\n\n\n\n\n\nApplied Category Theory Presentation\n\n\n\n\n\n\nevent\n\npresentation\n\n\n\nPresented at ZUCCMAP\n\n\n\n\n\nSep 3, 2024\n\n\nVictor KB\n\n\n\n\n\n\n\n\n\n\n\n\nCan quantum-mechanical description of physical reality be considered complete?\n\n\nPhysical Review\n\n\n\npaper\n\n\n\nOne is thus led to conclude that the description of reality as given by a wave function is not complete.\n\n\n\n\n\nMay 15, 1935\n\n\nAlbert Einstein, Boris Podolsky, Nathan Rosen\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publications.html",
@@ -60,28 +60,21 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "Fall 2024,   Fall 2023\nClass 1 introduction."
+    "text": "#\n\n\nTutorials for 3rd year Bachelor students."
   },
   {
-    "objectID": "teaching.html#class-1",
-    "href": "teaching.html#class-1",
+    "objectID": "teaching.html#signals-systems-i",
+    "href": "teaching.html#signals-systems-i",
     "title": "Teaching",
     "section": "",
-    "text": "Fall 2024,   Fall 2023\nClass 1 introduction."
+    "text": "#\n\n\nTutorials for 3rd year Bachelor students."
   },
   {
-    "objectID": "teaching.html#class-2",
-    "href": "teaching.html#class-2",
+    "objectID": "teaching.html#applied-category-theory-for-engineers-i-ii",
+    "href": "teaching.html#applied-category-theory-for-engineers-i-ii",
     "title": "Teaching",
-    "section": "Class 2",
-    "text": "Class 2\n\n\n\n\n\nSpring 2025,   Fall 2023\nClass 2 introduction."
-  },
-  {
-    "objectID": "teaching.html#class-3",
-    "href": "teaching.html#class-3",
-    "title": "Teaching",
-    "section": "Class 3",
-    "text": "Class 3\n\n\n\n\n\nSpring 2025,   Spring 2024\nClass 3 introduction."
+    "section": "Applied Category Theory for Engineers I & II",
+    "text": "Applied Category Theory for Engineers I & II\n\n\n#\n\n\nTaught, organized and corrected exercise sets for the ACT4E class from Spring 2023 to Spring 2025."
   },
   {
     "objectID": "contact.html",
@@ -89,6 +82,13 @@
     "title": "Contact",
     "section": "",
     "text": "Quarto Academic\nSchool\nCollege\nUniversity\nAddress:\nPhone:\nE-mail:"
+  },
+  {
+    "objectID": "posts/event-title/index.html",
+    "href": "posts/event-title/index.html",
+    "title": "Applied Category Theory Presentation",
+    "section": "",
+    "text": "# Recording can be found here."
   },
   {
     "objectID": "index.html",
@@ -109,7 +109,7 @@
     "href": "index.html#recent-posts",
     "title": "Victor Kawasaki-Borruat",
     "section": "Recent Posts",
-    "text": "Recent Posts\nCheck out the latest  Papers ,  News ,  Events , and  More »\n\n\n\n\n\n\n\n\n\n\nFirst Workshop Paper Accepted\n\n\n\nNov 3, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\nOct 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nEvent item\n\n\n\nSep 3, 2024\n\n\n\n\n\n\nNo matching items\n\n\nAll Posts »"
+    "text": "Recent Posts\nCheck out the latest  Papers ,  News ,  Events , and  More »\n\n\n\n\n\n\n\n\nFirst Workshop Paper Accepted\n\n\n\nSep 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\nOct 15, 2024\n\n\n\n\n\n\n\n\n\n\n\nApplied Category Theory Presentation\n\n\n\nSep 3, 2024\n\n\n\n\n\n\nNo matching items\n\n\nAll Posts »"
   },
   {
     "objectID": "people.html",

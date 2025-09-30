@@ -15,7 +15,7 @@
 <link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
 </image>
 <generator>quarto-1.7.33</generator>
-<lastBuildDate>Sun, 02 Nov 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 22 Sep 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>First Workshop Paper Accepted</title>
   <dc:creator>Victor KB</dc:creator>
@@ -36,8 +36,7 @@
  ]]></description>
   <category>news</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/posts/news-title/</guid>
-  <pubDate>Sun, 02 Nov 2025 23:00:00 GMT</pubDate>
-  <media:content url="https://drganghe.github.io/quarto-academic-website-template/posts/news-title" medium="image"/>
+  <pubDate>Mon, 22 Sep 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Quarto Academic Website Examples and Tips</title>
@@ -49,15 +48,15 @@
   <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder1.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Event item</title>
-  <dc:creator>Event </dc:creator>
+  <title>Applied Category Theory Presentation</title>
+  <dc:creator>Victor KB</dc:creator>
   <link>https://drganghe.github.io/quarto-academic-website-template/posts/event-title/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><a href="https://drganghe.github.io/quarto-academic-website-template/"><img src="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder2.JPG" class="img-fluid" style="width:90.0%"></a></p>
+<p>#<a href="https://drganghe.github.io/quarto-academic-website-template/"><img src="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder2.JPG" class="img-fluid" style="width:90.0%"></a> Recording can be found <a href="https://www.youtube.com/watch?v=Hk035f704Jg">here</a>.</p>
 <!--Include social share buttons-->
 <!-- 
 AddToAny check more: https://www.addtoany.com/buttons/for/website 
@@ -76,7 +75,6 @@ https://quarto.org/docs/authoring/includes.html
   <category>presentation</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/posts/event-title/</guid>
   <pubDate>Mon, 02 Sep 2024 22:00:00 GMT</pubDate>
-  <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder2.JPG" medium="image"/>
 </item>
 <item>
   <title>Can quantum-mechanical description of physical reality be considered complete?</title>
