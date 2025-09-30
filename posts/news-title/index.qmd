@@ -1,10 +1,10 @@
 ---
-title: "News item"
+title: "First Workshop Paper Accepted"
 description: "About new item"
-author: "News"
-date: "2024-06-24"
+author: "Victor KB"
+date: "2025-09-34"
 categories: [news]
-image: "/files/images/placeholder3.JPG"
+image: ""
 #css: /custom.css
 #draft: true
 ---
@@ -12,8 +12,7 @@ image: "/files/images/placeholder3.JPG"
 
 ## Summary
 
-About the news
+Our paper on Optimal Transport and Phase Transitions in diffusion models was accepted at the NeurIPS ML4PS workshop.
 
 <!--Include social share buttons-->
 
-{{< include /files/includes/_socialshare.qmd >}}
