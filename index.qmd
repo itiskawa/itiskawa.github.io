@@ -63,7 +63,7 @@ listing:   # Comment the listing section and delete corresponding lines in the i
 
 :::{#hero-heading}
 
-I'm a first-year PhD student at EPFL in the LTS2 lab. I work on mathematical and physical aspects of diffusion processes. In particular, I try to consolidate theoretical aspects with Differential Geometry, Field Theories and High-Dimensional Statistics.
+I'm a first-year PhD student at EPFL in the LTS2 lab. I study the geometry of data through the lens of stochastic analysis, focusing on how diffusion processes reveal intrinsic manifold structure. My work connects probabilistic curvature geometric analysis on metric measure (data) spaces. Other interests are score-based diffusion models, statistical mechanics, quantum information theory, calisthenics, drum 'n' bass, playing the guitar and achieving the perfect siu yuk in an airfryer (WIP).
 
 
 ## Education
@@ -71,6 +71,8 @@ I'm a first-year PhD student at EPFL in the LTS2 lab. I work on mathematical and
 - 2025-present: PhD Student, LTS2 Laboratory, EPFL
 - 2022-2025: Master's in Electrical Engineering, ETH Zürich
 - 2018-2022: Bachelor's in Communication Systems, EPFL
+
+Feel free to reach out: victor(dot)borruat(at)epfl(dot)ch
 
 :::
 
