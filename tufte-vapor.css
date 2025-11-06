@@ -246,7 +246,7 @@ hr::after  { color: var(--accent) !important; }
 /* Keep image square and neat */
 .profile-img {
   width: 180px;
-  height: 180px;
+  height: auto;
   object-fit: cover;
   border: 1px solid var(--accent-light);
   border-radius: 4px;
