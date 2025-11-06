@@ -1,6 +1,4 @@
 /* tufte-vapor.css — minimalist vaporwave-newspaper hybrid */
-@import url('https://edwardtufte.github.io/tufte-css/tufte.css');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html {
   background: #fbfaf7;
@@ -12,7 +10,7 @@ html {
 h1, h2, h3 {
   font-family: "Press Start 2P", monospace;
   letter-spacing: 0.02em;
-  color: #a78bfa;
+  color: #6b625a;
   text-transform: none;
   margin-top: 2.5rem;
 }
@@ -34,11 +32,11 @@ a:hover {
 }
 
 body {
-  max-width: 850px;
+  max-width: 900px;    /* or 100%, for full width */
+  width: 90%;           /* scales with screen */
   margin: 2rem auto;
-  padding: 0 1.5rem 5rem;
+  padding: 0 2rem 5rem;
 }
-
 hr {
   border: none;
   border-top: 1px solid #ddd;
@@ -50,7 +48,7 @@ hr::after {
   content: "✦";
   display: block;
   text-align: center;
-  color: #a78bfa;
+  color:  #666;
   font-family: "Press Start 2P", monospace;
   font-size: 0.8rem;
   margin-top: -0.8em;
@@ -104,3 +102,58 @@ nav a {
   letter-spacing: 0.05em;
   font-family: "Press Start 2P", monospace;
 }
+
+:root { color-scheme: light; }
+
+/* If the browser insists on dark mode, still render light */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #fbfaf7 !important;
+    color: #111 !important;
+  }
+  a { color: #0a6bc2; }
+  a:hover { color: #b23aa6; }
+}
+nav {
+  text-align: right;
+  margin-bottom: 3rem;
+  max-width: 1100px;   /* match your widened content if you changed it */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+nav a {
+  margin: 0 0 0 0.9rem; /* spacing to the left of each link */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* On phones, center the nav again */
+@media (max-width: 640px) {
+  nav { text-align: center; }
+  nav a { margin: 0 0.6rem; }
+}
+:root {
+  --accent: #666;      /* lighter gray you wanted */
+  --accent-light: #999;
+}
+
+/* Optional: body face not-LaTeX */
+html, body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+}
+
+/* FORCE pixel font on headings + brand + nav (beats Tufte) */
+body h1, body h2, body h3,
+header .brand,
+header nav a,
+nav a {
+  font-family: "Press Start 2P", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+  color: var(--accent) !important;
+}
+
+/* Your gray accents */
+blockquote { border-left: 3px solid var(--accent-light) !important; }
+hr::after  { color: var(--accent) !important; }
