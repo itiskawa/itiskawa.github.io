@@ -147,7 +147,7 @@ img {
 .profile-img {
   float: right;                 /* makes it sit to the right of text */
   width: 180px;                 /* adjust size here (e.g. 150–220px) */
-  height: auto;                 /* keep proportions */
+  height: 240px;                 /* keep proportions */
   margin: 0 0 1rem 1.5rem;      /* spacing from text */
   border: 1px solid var(--accent-light);
   border-radius: 4px;           /* subtle rounding; 0 for perfectly square */
