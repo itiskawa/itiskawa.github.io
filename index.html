@@ -41,3 +41,10 @@
   </footer>
 </body>
 </html>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(rs => Promise.all(rs.map(r => r.unregister())))
+  .then(() => (window.caches ? caches.keys().then(ks => Promise.all(ks.map(k => caches.delete(k)))) : null))
+  .then(() => setTimeout(() => location.href = location.origin + '/', 300));
+}
+</script>
