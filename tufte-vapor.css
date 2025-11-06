@@ -3,8 +3,8 @@
 html {
   background: #fbfaf7;
   color: #111;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 h1, h2, h3 {
@@ -135,14 +135,42 @@ nav a {
   nav { text-align: center; }
   nav a { margin: 0 0.6rem; }
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  border: 1px solid var(--accent-light);
+  border-radius: 6px;
+}
+.profile-img {
+  float: right;                 /* makes it sit to the right of text */
+  width: 180px;                 /* adjust size here (e.g. 150–220px) */
+  height: auto;                 /* keep proportions */
+  margin: 0 0 1rem 1.5rem;      /* spacing from text */
+  border: 1px solid var(--accent-light);
+  border-radius: 4px;           /* subtle rounding; 0 for perfectly square */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Make it stack on mobile */
+@media (max-width: 720px) {
+  .profile-img {
+    float: none;
+    display: block;
+    margin: 1.5rem auto;
+  }
+}
 :root {
   --accent: #666;      /* lighter gray you wanted */
   --accent-light: #999;
 }
 
+
 /* Optional: body face not-LaTeX */
 html, body {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-family: ui-sans-serif, system-ui, -apple-system,Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
 }
 
 /* FORCE pixel font on headings + brand + nav (beats Tufte) */
