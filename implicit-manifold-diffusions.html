@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://edwardtufte.github.io/tufte-css/tufte.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tufte-vapor.css?v=4">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implicit Manifold Diffusions — Victor Kawasaki-Borruat</title>
+  <link rel="stylesheet" href="tufte-vapor.css">
+  <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        tags: 'ams'
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="projects.html">projects</a>
+    <a href="publications.html">publications</a>
+    <a href="docs/cv.pdf">cv</a>
+  </nav>
+
+  <h1>Implicit Manifold Diffusions: Stochastic Dynamics from Point Clouds</h1>
+  <h3>> If you only have samples from a manifold, can you still construct the right stochastic dynamics on it?</h3>
+  <hr>
+  <!--<figure class="wrap-gif ">
+    <img src="docs/imgs/test-sphere.gif" alt="Animation of diffusion on an implicit manifold">
+    <figcaption>
+      Figure 1: Sample evolution near an implicit manifold.
+    </figcaption>
+  </figure>
+  -->
+
+  <div class="split-section">
+    <div class="split-left">
+      <figure class="split-figure" id="fig:S2-BM">
+        <img src="docs/imgs/test-sphere-2.gif" alt="Sample evolution near an implicit manifold">
+        <figcaption>Figure 1: Sample diffusion process constructed using IMDs from data points drawn from $\mathbb{S}^2 \subset \mathbb{R}^3$.
+          The process does not have access to any geometric information of $\mathbb{S}^2$ beyond the point cloud.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="split-right">
+      <p align="justify">
+        This post is a shorter and more intuitive exposition of Implicit Manifold-valued
+        Diffusions (IMDs), first introduced in this <a href="https://arxiv.org/abs/2604.07213"><span style="color: teal;">arXiv preprint</span></a>.
+      </p>
+      <!--<p>
+       Implicit Manifold Diffusions are a framework for constructing intrinsic stochastic dynamics on an unknown data manifold directly from samples. 
+      Rather than learning a diffusion model in the generative-modeling sense, we <i>estimate the generator of the manifold process itself</i>, 
+      yielding data-driven dynamics with path-space convergence guarantees. This makes IMDs relevant wherever one needs stochastic motion on data manifolds, 
+      including generative modeling, optimization, and manifold exploration.
+      </p>
+    -->
+      <!--<p>
+        The manifold hypothesis is everywhere in machine learning, but there is a conceptual gap at its core: 
+        <i>most geometric methods assume access to a manifold structure that we do not actually observe</i>. What we have is only data: a point cloud in a high-dimensional space. Implicit Manifold Diffusions (IMDs) are motivated by this gap: they provide a way to construct stochastic dynamics that are intrinsic to the unknown data manifold itself, directly from samples, without learning a diffusion model from noisy marginals or relying on explicit geometric information.
+      </p>-->
+        <p align="justify">
+          Data may live on a manifold, but in practice all we ever see is a point cloud. So if we want Brownian or Langevin-type motion that truly follows the geometry of the data, we face an immediate problem: the manifold itself is unknown. Implicit Manifold Diffusions (IMDs) tackle this setting directly. Instead of assuming access to charts, projections, or tangent spaces, they construct intrinsic stochastic dynamics from samples alone, turning manifold diffusion into a data-driven operator estimation problem.
+        </p>
+    </div>
+  </div>
+<hr>
+  <!--<h2> Introduction </h2>
+  
+  <p>
+    Brownian motion $B_t$ is a stochastic process which spreads evenly in all directions. In Euclidean (flat) space $\mathbb{R}^n$, it admits an SDE formulation
+    and can easily be simulated using the Euler-Maruyama scheme of step size $h>0$:
+    \begin{equation}
+    X_{\ell+1} = hX_\ell + \sqrt{h}W_{\ell+1}
+    \label{eq:EMBM}
+    \end{equation}
+    where $W_{\ell+1} \sim \mathcal{N}(0,\mathbb{I}_n)$ is an independently drawn Gaussian. Adding a drift term $b$ turns this into a <b>guided</b> diffusion 
+    process, which admits the SDE representation
+    \begin{equation}
+      dX_t = b(X_t)dt + dB_t.
+    \end{equation}
+    The above equation is ubiquitous in virtually all domains of science. In particular, if $b=\nabla U$ for a potential $U$ then we get the famous <i>Langevin dynamics</i>;
+    it is also the formulation for denoising diffusion models, as well as stochastic gradient descent. 
+  </p>
+-->
+
+  <h2>Manifold SDEs</h2>
+  <p>
+    Under the <i>manifold hypothesis</i>, we posit that data lies on a lower-dimensional smooth surface (manifold) $\mathcal{M}$ despite being represented in Euclidean space. 
+    A guided diffusion process on a manifold $\mathcal{M}$ admits the SDE
+    \begin{equation} 
+      dZ_t = b(Z_t)dt + dB^\mathcal{M}_t,
+    \end{equation}
+    where $b$ is a drift and $B^\mathcal{M}_t$ is Brownian motion constrained to $\mathcal{M}$. To perform on-manifold stochastic dynamics, we typically 
+    use projectors $P_\mathcal{M}:\mathbb{R}^n\to\mathcal{M}$  <a href="#ref-debortoli2022">[1]</a>, <a href="#ref-boumal2023">[2]</a> or approximations thereof <a href="#ref-cheng2022">[3]</a> to approximate $B^\mathcal{M}_t$.
+    <br>
+    In the case of data manifold $\mathsf{M}$, however, we do not know its explicit form or projectors...
+    This now prompts the question: <b>how do we compute $B^\mathsf{M}_t$ if we do not know $\mathsf{M}$ explicitly?</b>
+  </p>
+    <br>
+   <center><span style="font-size: 1.8em;">Enter Implicit Manifold Diffusions.</span></center>
+   <br>
+
+   <p>
+    The conceptual shift that IMDs leverage is the operator-theoretic backbone of diffusion processes: every diffusion process is generated by a second-order 
+    elliptic differential operator $L$ <a href="#ref-hsu2002">[4]</a>. IMDs thus construct stochastic dynamics that respect the geometry of $\mathsf{M}$ 
+    by estimating $L$ from the point cloud $X_N = \{x_i\}_{i=1}^N$ via a kernel method, analogous to <a href="#ref-coifman2006">Diffusion Maps</a>. From this estimated $L$, the new stochastic dynamics are given by 
+    \begin{equation}
+      dY_t =  \left(b(Y_t)+L(Y_t)\right)dt + \Gamma^{\frac{1}{2}}(Y_t)dW_t,
+    \end{equation}
+    where $\Gamma$ is the carré-du-champ operator associated to $L$ and $W_t$ is $\mathbb{R}^n$-valued Brownian Motion. 
+    <br>
+    Numerically, we consider $L$ and $\Gamma$ to be $N\times 3$ matrices, serving as lookup tables for their value at each data point $x_i$. A simple Euler-Maruyama scheme
+    suffices to produce stochastic dynamics that respect data manifold $\mathsf{M}$'s intrinsic structure (Fig. <a href="#fig:S2-BM">1</a>)
+    \begin{equation} 
+      Y_{\ell+1} = Y_{\ell} + h\left( b(\bar{Y_\ell}) + L\left(\bar{Y_\ell}\right)\right) + \sqrt{h}\Gamma^{\frac{1}{2}}(\bar{Y_\ell})W_{\ell+1},
+    \end{equation}
+    where $\bar{Y_\ell} = \textnormal{argmin}_{x\in X_N}\left\{ \|x-Y_\ell\|_2^2 \right\}$ the closest point to $Y_\ell$ in the point cloud $X_N$.
+   </p>
+
+
+  <h2>On-Manifold Path Generation</h2>
+  <p>
+    Thanks to the tangential and on-manifold trajectories that IMDs generate, we demonstrate a smooth interpolation between two data points of the MNIST dataset. 
+    In particular, we train the IMD on the point cloud of all <b>1</b> datapoints, and initialize at the data point 
+    <img src="docs/imgs/Z_lang_step_0.jpg" alt="Starting point" style="width:72px;height:80px;">
+    and set the drift to be a quadratic well around the data point 
+     <img src="docs/imgs/Z_lang_step_190.jpg" alt="Starting point" style="width:72px;height:80px;">
+     
+     <!--The following animation displays the produced trajectory
+     <img src="docs/imgs/trajectory_lang__h_0.001_L_500_SU_100_x0_0_no_SGM.gif?v=2" alt="imd-anim" style="width:360px;height:400px;">
+    where we can observe that the transition from the initial to the final point is quite smooth! No blatant out-of-distribution samples!--> 
+
+  The following animation displays the produced trajectory
+  <img id="traj-gif"
+       src="docs/imgs/trajectory_lang__h_0.001_L_500_SU_100_x0_0_no_SGM.gif"
+       alt="img-anim"
+       style="width:360px;height:400px;">
+  where we can observe that the transition from the initial to the final point is quite smooth.
+
+<script>
+  window.addEventListener('load', () => {
+    const img = document.getElementById('traj-gif');
+    const base = img.src.split('?')[0];
+    img.src = base + '?t=' + Date.now();
+  });
+</script>
+    </p>
+
+<h2>References</h2>
+<ol>
+  <li id="ref-debortoli2022">
+    De Bortoli, V., Mathieu, E., Hutchinson, M., Thornton, J., Teh, Y. W., & Doucet, A. (2022).
+    <em>Riemannian score-based generative modelling</em>
+    NeurIPS.
+  </li>
+  <li id="ref-boumal2023">
+    Boumal, N. (2023).
+    <em>An introduction to optimization on smooth manifolds</em>
+    Cambridge University Press.
+  </li>
+  <li id="ref-cheng2022">
+    Cheng, X., Jingzhao Z., and Suvrit S. (2022).
+    <em>Theory and algorithms for diffusion processes on Riemannian manifolds</em>
+    arXiv preprint.
+  </li>
+  <li id="ref-hsu2002">
+    Hsu, Elton P. (2002).
+    <em>Stochastic Analysis on Manifolds</em>
+    American Mathematical Society
+  </li>
+  <li id="ref-coifman2006">
+    Coifman, R. R., and Lafon, S. (2006).
+    <em>Diffusion maps.</em>
+    Applied and Computational Harmonic Analysis.
+  </li>
+  <li id="ref-song2021">
+    Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., and Poole, B. (2021).
+    <em>Score-Based Generative Modeling through Stochastic Differential Equations.</em>
+    ICLR.
+  </li>
+</ol>
+  <footer>
+    © 2026 Victor Kawasaki-Borruat
+  </footer>
+</body>
+</html>
